@@ -47,6 +47,9 @@ fact {
 pred I [m: Matrix] {
   m.rows >= 0
   m.cols >= 0
+  /* enable the following line to reproduce bug 2
+  m.rows = 0 <=> m.cols = 0
+  */
   m.vals.univ = range[m.rows]->range[m.cols]
 }
 
@@ -56,6 +59,9 @@ pred I [e: ELL] {
   e.cols >= 0
   e.maxnz >= 0
   e.maxnz <= e.cols
+  /* enable the following line to reproduce bug 2
+  e.rows = 0 <=> e.cols = 0
+  */
   e.coef.univ = range[e.rows]->range[e.maxnz]   -- set i->j for coef
   e.jcoef.univ = range[e.rows]->range[e.maxnz]  -- set i->j for jcoef
 
@@ -79,6 +85,9 @@ pred I [c: CSR] {
   c.rows >= 0
   c.cols >= 0
   c.IA[0] = 0
+  /* enable the following line to reproduce bug 2
+  c.rows = 0 <=> c.cols = 0 
+  */
   c.IA.end = #c.A        -- last value of IA is length of A
   #c.IA = c.rows.add[1]  -- length of IA is rows + 1
   #c.A = #c.JA           -- A and JA are same length

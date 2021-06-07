@@ -101,3 +101,15 @@ assert translateValid {
 check alphaValid for 1 Matrix, 1 ELL, 1 CSR, 3 Value
 check preservesRep for 0 Matrix, 1 ELL, 1 CSR, 3 Value
 check translateValid for 1 Matrix, 1 ELL, 1 CSR, 3 Value
+
+
+fun maxnz[c:CSR]:Int {
+  let cols_in_row = {cols: Int | some i: range[0, (#c.IA).sub[1]] | cols = c.IA[i.add[1]]-c.IA[i]} |
+     some cols_in_row => max[cols_in_row] else 0 
+}
+
+assert maxnzValid {
+  all e: ELL, c:CSR |
+    I[e] and ellcsr[e, c]  =>(maxnz[c]=e.maxnz)
+}
+check maxnzValid for 0 Matrix, 1 ELL, 1 CSR, 3 Value
