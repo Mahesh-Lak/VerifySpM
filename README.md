@@ -1,7 +1,7 @@
 # Verification of Sparse Matrix Computations with Alloy
 
 ### CS 6110 Spring'21 Class Project
-#### Contributors: Mahesh Lakshminarasimhan, Xinyi Li.
+#### __Contributors__: Mahesh Lakshminarasimhan, Xinyi Li.
 
 
 ### Repo Structure
@@ -10,6 +10,7 @@
     * `CSRtoELL`: Translation from the CSR to the ELL format.
         <br />&nbsp;&nbsp;&nbsp;&nbsp; Please check our [original repo](https://github.com/Mahesh-Lak/SpM-Alloy) to see the commits and hitory for this part. 
     * `COOtoCSR_mvmELL`: Translation from COO to CSR, and MVM with the ELL format.
+* __paper_src__: Latex source files for the workshop paper write-up.
 ### Reproducing the bugs 
 <br /> &nbsp;&nbsp;&nbsp;&nbsp;There are two bugs: 
 * __bug1__: zero rows but >0 columns issue. <br>
